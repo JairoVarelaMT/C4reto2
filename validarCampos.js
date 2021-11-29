@@ -30,7 +30,7 @@ const validarCampos = (e) =>{
             }
             break;
         case "direccion":
-            if (expresiones.nombre.test(e.target.value)) {
+            if (expresiones.usuario.test(e.target.value)) {
                 document.getElementById('direccion').classList.remove('is-invalid')
                 document.getElementById('direccion').classList.add('is-valid')
             }
@@ -39,16 +39,41 @@ const validarCampos = (e) =>{
             }
             break;
         case "numeroCelular":
-            
+            if (expresiones.telefono.test(e.target.value)) {
+                document.getElementById('numeroCelular').classList.remove('is-invalid')
+                document.getElementById('numeroCelular').classList.add('is-valid')
+            }
+            else{
+                document.getElementById('numeroCelular').classList.add('is-invalid')
+            }
+            break;
             break;
         case "email":
-            
+            if (expresiones.correo.test(e.target.value)) {
+                document.getElementById('email').classList.remove('is-invalid')
+                document.getElementById('email').classList.add('is-valid')
+            }
+            else{
+                document.getElementById('email').classList.add('is-invalid')
+            }
             break;
         case "password":
-            
+            if (expresiones.password.test(e.target.value)) {
+                document.getElementById('password').classList.remove('is-invalid')
+                document.getElementById('password').classList.add('is-valid')
+            }
+            else{
+                document.getElementById('password').classList.add('is-invalid')
+            }
             break;
         case "zonaAsignada":
-            
+            if (expresiones.nombre.test(e.target.value)) {
+                document.getElementById('zonaAsignada').classList.remove('is-invalid')
+                document.getElementById('zonaAsignada').classList.add('is-valid')
+            }
+            else{
+                document.getElementById('zonaAsignada').classList.add('is-invalid')
+            }
             break;
         
         default:

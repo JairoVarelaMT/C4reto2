@@ -19,64 +19,74 @@
 </head>
 <body>
     <div class="container bt-3 border">
-        <h2 class="text-center pt-5">Formulario Usuarios</h2>
+        <h2 class="text-center pt-5 mb-5">Formulario Usuarios</h2>
         <div class="container border">
-            <div class="row border border-light">
-                <div class="col-6">
-                    <div class="form-floating mb-3">
-                        
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Numero de identificación" >
-                        <label for="floatingInput"> <i class="bi bi-123"></i> Numero de identificación</label>
-                      </div>
+            <form class="row needs-validation" id="formularioUser" novalidate>
+                <div class="row border border-light">
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="numeroIdentificacion" name="numeroIdentificacion" placeholder="Numero de identificación" required>
+                            <label for="floatingInput"> <i class="bi bi-123"></i> Numero de identificación</label>
+                          </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombres" required>
+                            <label for="floatingPassword"><i class="bi bi-file-earmark-person"></i> Nombres</label>
+                          </div>
+                    </div>
                 </div>
-                <div class="col-6">
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingPassword" placeholder="Nombres">
-                        <label for="floatingPassword"><i class="bi bi-file-earmark-person"></i> Nombres</label>
-                      </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3">  
+                            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" required>
+                            <label for="floatingInput"> <i class="bi bi-signpost"></i> Dirección</label>
+                          </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-floating mb-3">  
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Dirección" >
-                        <label for="floatingInput"> <i class="bi bi-signpost"></i> Dirección</label>
-                      </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3">  
+                            <input type="text" class="form-control" id="numeroCelular" name="numeroCelular" placeholder="Numero Celular"required >
+                            <label for="floatingInput"> <i class="bi bi-telephone"></i> Numero celular</label>
+                          </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-floating mb-3">  
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Numero Celular" >
-                        <label for="floatingInput"> <i class="bi bi-telephone"></i> Numero celular</label>
-                      </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3">  
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Email"required >
+                            <label for="floatingInput"> <i class="bi bi-envelope"></i> Email</label>
+                          </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-floating mb-3">  
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Email" >
-                        <label for="floatingInput"> <i class="bi bi-envelope"></i> Email</label>
-                      </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3">  
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
+                            <label for="floatingInput"> <i class="bi bi-asterisk"></i> Contraseña</label>
+                          </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-floating mb-3">  
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Email" >
-                        <label for="floatingInput"> <i class="bi bi-envelope"></i> Email</label>
-                      </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3">  
+                            <input type="text" class="form-control" id="zonaAsignada" name="zonaAsignada" placeholder="Zona asignada"required >
+                            <label for="floatingInput"> <i class="bi bi-geo-alt"></i> Zona asignada</label>
+                          </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-floating mb-3">  
-                        <input type="password" class="form-control" id="floatingInput" placeholder="Contraseña" >
-                        <label for="floatingInput"> <i class="bi bi-asterisk"></i> Contraseña</label>
-                      </div>
-                </div>
-            </div>
-        </div>     
+               <div class="row">
+                   <div class="col-4">
+                <button type="submit" class="btn btn-success mb-3" style="width: 150px;">Agregar</button>
+
+                   </div>
+               </div>
+            </form>     
+        </div>
+        
     </div>
+    <script src="./validarCampos.js"></script>
+    <script src="./CRUD_User.js"></script>
 </body>
 </html>

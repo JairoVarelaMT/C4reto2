@@ -82,30 +82,31 @@
                           </div>
                           <p class="error" id="error_zonaAsignada"><span><strong>Error:</strong> No puede contener numeros</span> </p>
                     </div>
+                    <div class="col">
+                        <div class="tipo">
+                            <select name="tipoUsuario" class="form-select form-select-lg">
+                                <option selected="coordinador de zona" value="coordinador de zona">coordinador de zona</option>
+                                <option value="Asesor comercial">Asesor comercial</option>
+                                
+                              </select>
+                        </div> 
+                    </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-6">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" value="coordinador zona" id="coordinador">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Coordinadores de Zona
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" value="asesores comerciales" id="asesor" checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Asesores Comerciales
-                            </label>
-                          </div>
-                    </div>
+                   
                 </div>
                <div class="row">
                    <div class="col-4">
-                <button type="submit" class="btn btn-success mb-3" style="width: 150px;"><i class="bi bi-person-plus-fill"></i> Agregar</button>
+                <button id="btnGuardar" type="submit" class="btn btn-success mb-3" style="width: 150px;"><i class="bi bi-person-plus-fill"></i> Agregar</button>
+                <button id="btnActualizar" type="submit" class="btn btn-success mb-3" style="width: 150px;"><i class="bi bi-person-plus-fill"></i> Actualizar</button>
+                <button id="btnLIstar" type="submit" class="btn btn-success mb-3" style="width: 150px;"><i class="bi bi-person-plus-fill"></i> Listar</button>
 
                    </div>
                </div>
             </form>     
+        </div>
+        <div class="container">
+            <div id="tablaUsuarios"></div>
         </div>
         
     </div>

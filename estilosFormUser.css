@@ -1,0 +1,17 @@
+.aviso_error{
+    display: none;
+}
+.aviso_error_correcto{
+    display: block;
+}
+.error{
+    color: rgb(228, 34, 73);
+    border-radius: 8px;
+    
+}
+.error span{
+    padding: 8px;
+}
+p{
+    display: none;
+}

@@ -8,71 +8,115 @@ const expresiones = {
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	telefono: /^\d{7,14}$/ // 7 a 14 numeros
 }
-
+const campos = {
+    numeroIdentidad: false,
+    nombres: false,
+    direccion: false,
+    numeroCelular: false,
+    email: false,
+    password: false,
+    zonaAsignada: false
+}
 const validarCampos = (e) =>{
     switch (e.target.name) {
         case "numeroIdentificacion":
             if (expresiones.telefono.test(e.target.value)) {
                 document.getElementById('numeroIdentificacion').classList.remove('is-invalid')
                 document.getElementById('numeroIdentificacion').classList.add('is-valid')
+                document.getElementById('error_numeroIdentificacion').style.display='none';
+                campos.numeroIdentidad = true;
             }
             else{
                 document.getElementById('numeroIdentificacion').classList.add('is-invalid')
+                document.getElementById('error_numeroIdentificacion').classList.add('error')
+                document.getElementById('error_numeroIdentificacion').style.display='block';
+                campos.numeroIdentidad = false;
             }
             break;
         case "nombres":
             if (expresiones.nombre.test(e.target.value)) {
                 document.getElementById('nombres').classList.remove('is-invalid')
                 document.getElementById('nombres').classList.add('is-valid')
+                document.getElementById('error_nombres').style.display='none';
+                campos.nombres = true;
             }
             else{
                 document.getElementById('nombres').classList.add('is-invalid')
+                document.getElementById('error_nombres').classList.add('error')
+                document.getElementById('error_nombres').style.display='block';
+                campos.nombres = false;
             }
+            
             break;
         case "direccion":
             if (expresiones.usuario.test(e.target.value)) {
                 document.getElementById('direccion').classList.remove('is-invalid')
                 document.getElementById('direccion').classList.add('is-valid')
+                document.getElementById('error_direccion').style.display='none';
+                campos.direccion = true;
             }
             else{
                 document.getElementById('direccion').classList.add('is-invalid')
+                document.getElementById('error_direccion').classList.add('error')
+                document.getElementById('error_direccion').style.display='block';
+                campos.direccion = false;
             }
+            
             break;
         case "numeroCelular":
             if (expresiones.telefono.test(e.target.value)) {
                 document.getElementById('numeroCelular').classList.remove('is-invalid')
                 document.getElementById('numeroCelular').classList.add('is-valid')
+                document.getElementById('error_numeroCelular').style.display='none';
+                campos.numeroCelular = true;
             }
             else{
                 document.getElementById('numeroCelular').classList.add('is-invalid')
+                document.getElementById('error_numeroCelular').classList.add('error')
+                document.getElementById('error_numeroCelular').style.display='block';
+                campos.numeroCelular = false;
             }
-            break;
             break;
         case "email":
             if (expresiones.correo.test(e.target.value)) {
                 document.getElementById('email').classList.remove('is-invalid')
                 document.getElementById('email').classList.add('is-valid')
+                document.getElementById('error_email').style.display='none';
+                campos.email = true;
             }
             else{
                 document.getElementById('email').classList.add('is-invalid')
+                document.getElementById('error_email').classList.add('error')
+                document.getElementById('error_email').style.display='block';
+                campos.email = false;
             }
             break;
         case "password":
             if (expresiones.password.test(e.target.value)) {
                 document.getElementById('password').classList.remove('is-invalid')
                 document.getElementById('password').classList.add('is-valid')
+                document.getElementById('error_password').style.display='none';
+                campos.password = true;
             }
             else{
                 document.getElementById('password').classList.add('is-invalid')
+                document.getElementById('error_password').classList.add('error')
+                document.getElementById('error_password').style.display='block';
+                campos.password = false;
             }
             break;
         case "zonaAsignada":
             if (expresiones.nombre.test(e.target.value)) {
                 document.getElementById('zonaAsignada').classList.remove('is-invalid')
                 document.getElementById('zonaAsignada').classList.add('is-valid')
+                document.getElementById('error_zonaAsignada').style.display='none';
+                campos.zonaAsignada = true;
             }
             else{
                 document.getElementById('zonaAsignada').classList.add('is-invalid')
+                document.getElementById('error_zonaAsignada').classList.add('error')
+                document.getElementById('error_zonaAsignada').style.display='block';
+                campos.zonaAsignada = false;
             }
             break;
         
@@ -89,5 +133,10 @@ inputs.forEach((input)=>{
 
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
+    if(campos.numeroIdentidad && campos.nombres && campos.direccion && campos.numeroCelular && campos.email && campos.password && campos.zonaAsignada){
+        console.log('Correcto.');
+    }
+    else
+        console.log('Incorrecto.')
 
 });

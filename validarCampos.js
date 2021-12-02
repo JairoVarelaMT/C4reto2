@@ -134,12 +134,8 @@ inputs.forEach((input)=>{
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
     
-    console.log($('select option:selected').val());
     if(campos.numeroIdentidad && campos.nombres && campos.direccion && campos.numeroCelular && campos.email && campos.password && campos.zonaAsignada){
         agregarCliente();
-
     }
-    else
-        console.log('Incorrecto.')
     
 });

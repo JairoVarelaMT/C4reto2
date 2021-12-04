@@ -2,7 +2,10 @@ $(document).ready(function(){
     $("#btnActualizar").hide();
     GetAllUsers();
 });
-
+const btnActualizar = document.getElementById('btnActualizar');
+btnActualizar.addEventListener('onclick',() =>{
+    actualizarCliente();
+});
 //METODO AGREGAR (post) UN USUARIO
 function agregarCliente(){
     
@@ -70,8 +73,8 @@ function listarUsuarios(respuesta){
         myTable+="<td>"+respuesta[i].password+"</td>";
         myTable+="<td>"+respuesta[i].zone+"</td>";
         myTable+="<td>"+respuesta[i].type+"</td>";
-        myTable+="<td> <button class='btn btn-warning' onclick='editarCliente("+respuesta[i].id+")'>Editar</button>";
-        myTable+="<td> <button class='btn btn-danger' onclick='borrarUsuario("+respuesta[i].id+")'>Borrar</button>";
+        myTable+="<td> <button class='btn btn-warning' onclick='editarCliente("+respuesta[i].identification+")'>Editar</button>";
+        myTable+="<td> <button class='btn btn-danger' onclick='borrarUsuario("+respuesta[i].identification+")'>Borrar</button>";
         myTable+="</tr>";
     }
     myTable+="</table>";

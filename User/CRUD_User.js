@@ -1,51 +1,58 @@
 $(document).ready(function(){
     $("#btnActualizar").hide();
     GetAllUsers();
+    formulario.reset();
+    
 });
 const btnActualizar = document.getElementById('btnActualizar');
 btnActualizar.addEventListener('onclick',() =>{
     actualizarCliente();
 });
 //METODO AGREGAR (post) UN USUARIO
-function agregarCliente(){
-    
+function agregarUser(){
+    console.log('Entro al metodo agregar cliente');
     var datos = {
-        identification:$("#numeroIdentidad").val(),
+        id: parseInt($("#numeroIdentificacion").val()),
+        identification:$("#numeroIdentificacion").val(),
         name:$("#nombres").val(),
         address:$("#direccion").val(),
         cellPhone:$("#numeroCelular").val(),
         email:$("#email").val(),
         password:$("#password").val(),
-        zone:$("#zonaAsignada").val(),
-        type:$('select option:selected').val()
+        zone:$('#zone').val(),
+        type:$('#type').val()
+        //
     };
+        console.log(datos);   
         $.ajax({
+        url:"http://132.226.255.90:8080/api/user/new",
         type:'POST',
         contentType: "application/json; charset=utf-8",
         dataType: 'JSON',
         data: JSON.stringify(datos),
-
-        url:"http://localhost:8080/api/",
-
         success:function(rest) {
             alert("Usuario guardado con exito");
+            formulario.reset();
+            GetAllUsers();
         },
         error: function(jqXHR, textStatus, errorThrown) {
               window.location.reload()
             alert("No se guardo correctamente");
+
         }
         });
 }
 //mostrar (GET) todo los usuarios en la BD
 function GetAllUsers(){
+    
     $.ajax({
 
-        url:"http://localhost:8080/api/",
+        url:"http://132.226.255.90:8080/api/user/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
             console.log(respuesta);
-            listarUsuario(respuesta);
+            listarUsuarios(respuesta);
         }
     });
 }
@@ -73,8 +80,8 @@ function listarUsuarios(respuesta){
         myTable+="<td>"+respuesta[i].password+"</td>";
         myTable+="<td>"+respuesta[i].zone+"</td>";
         myTable+="<td>"+respuesta[i].type+"</td>";
-        myTable+="<td> <button class='btn btn-warning' onclick='editarCliente("+respuesta[i].identification+")'>Editar</button>";
-        myTable+="<td> <button class='btn btn-danger' onclick='borrarUsuario("+respuesta[i].identification+")'>Borrar</button>";
+        myTable+="<td> <button class='btn btn-warning' onclick='editarUsuario("+respuesta[i].id+")'>Editar</button>";
+        myTable+="<td> <button class='btn btn-danger' onclick='borrarUsuario("+respuesta[i].id+")'>Borrar</button>";
         myTable+="</tr>";
     }
     myTable+="</table>";
@@ -86,16 +93,17 @@ function borrarUsuario(id){
         id:id
     };
     let dataToSend=JSON.stringify(datos);
+    console.log(id);
     $.ajax({
-
-        url: "http://localhost:8080/api/",
-
+        
+        url: "http://132.226.255.90:8080/api/user/"+id,
         type:"DELETE",
         data:dataToSend,
         contentType:"application/JSON",
         datatype:"JSON",
         success:function(respuesta){
-            listarUsuarios(respuesta);
+            formulario.reset();
+            GetAllUsers();
             alert("Cliente borrado con exito.")
         }
     });
@@ -103,13 +111,13 @@ function borrarUsuario(id){
 // Metodo editar (put) un usuario
 
 
-function editarCliente(id){
+function editarUsuario(id){
     $("#btnActualizar").show();
     $("#btnActualizar").hide();
     $("#btnListar").hide();
 
     $.ajax({
-        url:"http://localhost:8080/api/"+id,
+        url:"http://132.226.255.90:8080/api/user/"+id,
         type: 'GET',
         dataType: "json",
 
@@ -141,21 +149,21 @@ function actualizarCliente(){
         cellPhone:$("#numeroCelular").val(),
         email:$("#email").val(),
         password:$("#password").val(),
-        zone:$("#zonaAsignada").val(),
-        type:$('select option:selected').val()
+        zone:$('#zone').val(),
+        type:$('#type').val()
     };
     
     let dataToSend=JSON.stringify(datos);
     $.ajax({
-        url:"http://localhost:8080/api/",
+        url:"http://132.226.255.90:8080/api/user/update",
         type:"PUT",
         data:dataToSend,
         contentType:"application/json; charset=utf-8",
         datatype:"JSON",
 
         success:function(respuesta){
-            borrarCampos();
-            listarUsuarios();
+            formulario.reset();
+            GetAllUsers();
             alert("Cliente actualizado con exito");
         },
 
@@ -165,12 +173,3 @@ function actualizarCliente(){
     });
 }
 //Borrar el valor de todos los campos del formulario despues de actualizar.
-function borrarCampos(){
-    $("#numeroIdentificacion").val(""),
-    $("#nombres").val("")
-    $("#direccion").val(""),
-    $("#numeroCelular").val(""),
-    $("#email").val(""),
-    $("#password").val(""),
-    $("#zonaAsignada").val("")
-}

@@ -20,97 +20,117 @@
 </head>
 <body>
     
-    <div class="container bt-3 border">
-        
-        <h2 class="text-center pt-5 mb-5">Formulario Usuarios</h2>
-        <div class="container">
-            <script src=""></script>
-            <form class="row needs-validation" id="formularioUser" novalidate>
-                <div class="row">
-                    <div class="col-6">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="numeroIdentificacion" name="numeroIdentificacion" placeholder="Numero de identificación" required>
-                            <label for="floatingInput"> <i class="bi bi-123"></i> Numero de identificación</label>
-                          </div>
-                          <p id="error_numeroIdentificacion" class=""> <span><strong>Error:</strong> El numero de identidad solo puede tener numeros.</span></p>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombres" required>
-                            <label for="floatingPassword"><i class="bi bi-file-earmark-person"></i> Nombres</label>
-                          </div>
-                          <p class="error" id="error_nombres"> <span><strong>Error:</strong> El nombre solo debe tener letras.</span></p>
-                    </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col">
-                        <div class="form-floating mb-3">  
-                            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" required>
-                            <label for="floatingInput"> <i class="bi bi-signpost"></i> Dirección</label>
-                          </div>
-                          <p class="error" id="error_direccion"> <span><strong>Error:</strong> No puede tener espacio ni simbolos (callexxNxx_xxsur)</span></p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-floating mb-3">  
-                            <input type="text" class="form-control" id="numeroCelular" name="numeroCelular" placeholder="Numero Celular"required >
-                            <label for="floatingInput"> <i class="bi bi-telephone"></i> Numero celular</label>
-                          </div>
-                          <p class="error" id="error_numeroCelular"> <span><strong>Error:</strong> No puede contener letras</span></p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-floating mb-3">  
-                            <input type="text" class="form-control" id="email" name="email" placeholder="Email"required >
-                            <label for="floatingInput"> <i class="bi bi-envelope"></i> Email</label>
-                          </div>
-                          <p class="error" id="error_email"><span><strong>Error:</strong> No es un correo valido</span></p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-floating mb-3">  
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
-                            <label for="floatingInput"> <i class="bi bi-asterisk"></i> Contraseña</label>
-                          </div>
-                          <p class="error" id="error_password"> <span><strong>Error:</strong> La contraseña debe tener minimo 4 caracteres  y max 12</span> </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-floating mb-3">  
-                            <input type="text" class="form-control" id="zonaAsignada" name="zonaAsignada" placeholder="Zona asignada"required >
-                            <label for="floatingInput"> <i class="bi bi-geo-alt"></i> Zona asignada</label>
-                          </div>
-                          <p class="error" id="error_zonaAsignada"><span><strong>Error:</strong> No puede contener numeros</span> </p>
-                    </div>
-                    <div class="col">
-                        <div class="tipo">
-                            <select name="tipoUsuario" class="form-select form-select-lg">
-                                <option selected="coordinador de zona" value="coordinador de zona">coordinador de zona</option>
-                                <option value="Asesor comercial">Asesor comercial</option>
+    <div class="container bt-3 border p-3 mt-3" >
+        <!--contenedor principal-->
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col" id="formulario_user">
+            
+                <h2 class="text-center pt-5 mb-5">Formulario Usuarios</h2>
+                <div class="container-form">
+                    
+                    <form class="row needs-validation" id="formularioUser" novalidate>
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="numeroIdentificacion" name="numeroIdentificacion" placeholder="Numero de identificación" required>
+                                    <label for="floatingInput"> <i class="bi bi-123"></i> Numero de identificación</label>
+                                </div>
+                                <p id="error_numeroIdentificacion" class=""> <span><strong>Error:</strong> El numero de identidad solo puede tener numeros.</span></p>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombres" required>
+                                    <label for="floatingPassword"><i class="bi bi-file-earmark-person"></i> Nombres</label>
+                                </div>
+                                <p class="error" id="error_nombres"> <span><strong>Error:</strong> El nombre solo debe tener letras.</span></p>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <div class="form-floating mb-3">  
+                                    <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" required>
+                                    <label for="floatingInput"> <i class="bi bi-signpost"></i> Dirección</label>
+                                </div>
                                 
-                              </select>
-                        </div> 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3">  
+                                    <input type="text" class="form-control" id="numeroCelular" name="numeroCelular" placeholder="Numero Celular"required >
+                                    <label for="floatingInput"> <i class="bi bi-telephone"></i> Numero celular</label>
+                                </div>
+                                <p class="error" id="error_numeroCelular"> <span><strong>Error:</strong> No puede contener letras.</span></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3">  
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="Email"required >
+                                    <label for="floatingInput"> <i class="bi bi-envelope"></i> Email</label>
+                                </div>
+                                <p class="error" id="error_email"><span><strong>Error:</strong> No es un correo valido.</span></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3">  
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
+                                    <label for="floatingInput"> <i class="bi bi-asterisk"></i> Contraseña</label>
+                                </div>
+                                <p class="error" id="error_password"> <span><strong>Error:</strong> La contraseña debe tener minimo 4 caracteres  y max 12.</span> </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                            
+                                    <select id="zone" class="form-select">
+                                        <option selected="COMUNA 1 - CENTRO" value="COMUNA 1 - CENTRO">COMUNA 1 - CENTRO</option>
+                                        <option value="COMUNA 2 – CALAMBEO">COMUNA 2 – CALAMBEO</option>
+                                        <option value="COMUNA 3 - SAN SIMÓN">COMUNA 3 - SAN SIMÓN</option>
+                                        <option value="COMUNA 4 – PIEDRAPINTADA">COMUNA 4 – PIEDRAPINTADA</option>
+                                        <option value="COMUNA 5 – JORDÁN">COMUNA 5 – JORDÁN</option>
+                                        <option value="COMUNA 6 – VERGEL">COMUNA 6 – VERGEL</option>
+                                        <option value="COMUNA 7 – SALADO">COMUNA 7 – SALADO</option>
+                                        <option value="COMUNA 8 - SIMÓN BOLÍVAR">COMUNA 8 - SIMÓN BOLÍVAR</option>
+                                        <option value="COMUNA 9 - PICALEÑA-MIROLINDO">COMUNA 9 - PICALEÑA-MIROLINDO</option>
+                                        <option value="COMUNA 10 – ESTADIO">COMUNA 10 – ESTADIO</option>
+                                        <option value="COMUNA 11 – FERIAS">COMUNA 11 – FERIAS</option>
+                                        <option value="COMUNA 12 – RICAURTE">COMUNA 12 – RICAURTE</option>
+                                        <option value="COMUNA 13 - BOQUERÓN">COMUNA 13 - BOQUERÓN</option> 
+                                    </select>
+                            </div>
+                            <div class="col">
+                            
+                                    <select  id="type" name="tipoUsuario" class="form-select">
+                                        <option selected="coordinador de zona" value="coordinador de zona">COORDINADOR DE ZONA</option>
+                                        <option value="Asesor comercial">ASESOR COMERCIAL</option> 
+                                    </select>
+                                
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                        
+                        </div>
+                    <div class="row">
+                        <div class="col-4">
+                        <button id="btnGuardar" type="submit" class="btn btn-success mb-3" style="width: 150px;"><i class="bi bi-person-plus-fill"></i> Agregar</button>
+                        </div>
                     </div>
+                    </form>
+                    <button id="btnActualizar" type="submit" class="btn btn-success mb-3" style="width: 150px;"><i class="bi bi-person-plus-fill"></i> Actualizar</button>
+                
+                    <div class="container">
+                        <div id="tablaUsuarios"></div>
+                    </div>       
                 </div>
-                <div class="row mb-3">
-                   
-                </div>
-               <div class="row">
-                   <div class="col-4">
-                <button id="btnGuardar" type="submit" class="btn btn-success mb-3" style="width: 150px;"><i class="bi bi-person-plus-fill"></i> Agregar</button>
-                <button id="btnActualizar" type="submit" class="btn btn-success mb-3" style="width: 150px;"><i class="bi bi-person-plus-fill"></i> Actualizar</button>
-                <button id="btnListar" type="submit" class="btn btn-dark mb-3" style="width: 150px;"><i class="bi bi-person-plus-fill"></i> Listar</button>
-                   </div>
-               </div>
-            </form>     
+            </div>
+            <!--Columna principal-->
+            <div class="col-2"></div>
         </div>
-        <div class="container">
-            <div id="tablaUsuarios"></div>
-        </div>
+
+        
         
     </div>
     <script src="./validarCampos.js"></script>

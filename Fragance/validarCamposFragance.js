@@ -1,7 +1,7 @@
 const expresiones = {
 	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-	password: /^.{2,12}$/, // 4 a 12 digitos.
+	password: /^.{2,50}$/, // 4 a 12 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	telefono: /^\d{1,14}$/ // 7 a 14 numeros
 }
@@ -45,7 +45,7 @@ function validarInputs(expresion, name, id_input ){
 const validarCamposFragance = (e) =>{
     switch (e.target.name) {
         case "reference":
-            validarInputs(expresiones.telefono, e.target.value, 'reference');
+            validarInputs(expresiones.password, e.target.value, 'reference');
             break;
         case "brand":
             validarInputs(expresiones.password, e.target.value,'brand');
@@ -54,7 +54,7 @@ const validarCamposFragance = (e) =>{
             validarInputs(expresiones.nombre, e.target.value,'category');
             break;
         case "presentation":
-            validarInputs(expresiones.nombre, e.target.value,'presentation');
+            validarInputs(expresiones.password, e.target.value,'presentation');
             break;
         case "description":
             validarInputs(expresiones.password, e.target.value,'description');
@@ -76,6 +76,7 @@ inputs.forEach((inputs)=>{
 formularioFragance.addEventListener('submit', (e) =>{
    e.preventDefault();
     if (campos.reference && campos.brand && campos.category  && campos.presentation  && campos.description  && campos.price  && campos.quantity && $("#photography").val() != "") {   
+        agregarCliente();
         console.log('formulario correcto');
         formulario.reset();
     }

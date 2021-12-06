@@ -2,11 +2,11 @@ const formulario = document.getElementById('formularioUser');
 const inputs = document.querySelectorAll('#formularioUser input');
 
 const expresiones = {
-	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+	usuario:/^.{8,25}$/, // Letras, numeros, guion y guion_bajo
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
 	password: /^.{4,12}$/, // 4 a 12 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	telefono: /^\d{7,14}$/ // 7 a 14 numeros
+	telefono: /^\d{1,14}$/ // 7 a 14 numeros
 }
 const campos = {
     numeroIdentidad: false,
@@ -14,8 +14,7 @@ const campos = {
     direccion: false,
     numeroCelular: false,
     email: false,
-    password: false,
-    zonaAsignada: false
+    password: false
 }
 const validarCampos = (e) =>{
     switch (e.target.name) {
@@ -104,22 +103,7 @@ const validarCampos = (e) =>{
                 document.getElementById('error_password').style.display='block';
                 campos.password = false;
             }
-            break;
-        case "zonaAsignada":
-            if (expresiones.nombre.test(e.target.value)) {
-                document.getElementById('zonaAsignada').classList.remove('is-invalid')
-                document.getElementById('zonaAsignada').classList.add('is-valid')
-                document.getElementById('error_zonaAsignada').style.display='none';
-                campos.zonaAsignada = true;
-            }
-            else{
-                document.getElementById('zonaAsignada').classList.add('is-invalid')
-                document.getElementById('error_zonaAsignada').classList.add('error')
-                document.getElementById('error_zonaAsignada').style.display='block';
-                campos.zonaAsignada = false;
-            }
-            break;
-        
+            break;    
         default:
             break;
     }
@@ -132,10 +116,12 @@ inputs.forEach((input)=>{
 
 
 formulario.addEventListener('submit', (e) => {
-    e.preventDefault();
     
-    if(campos.numeroIdentidad && campos.nombres && campos.direccion && campos.numeroCelular && campos.email && campos.password && campos.zonaAsignada){
-        agregarCliente();
+    e.preventDefault();
+    if(campos.numeroIdentidad && campos.nombres && campos.direccion && campos.numeroCelular && campos.email && campos.password){
+        agregarUser();
     }
+    else
+        alert('Todds los campos deben estar llenos.');
     
 });

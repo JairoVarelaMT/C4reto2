@@ -41,7 +41,6 @@ function validarInputs(expresion, name, id_input ){
         campos[id_input] = false;
     }
 }
-
 const validarCamposFragance = (e) =>{
     switch (e.target.name) {
         case "reference":
@@ -72,13 +71,12 @@ inputs.forEach((inputs)=>{
     inputs.addEventListener('keyup',validarCamposFragance);
     inputs.addEventListener('blur',validarCamposFragance);
 });
-
 formularioFragance.addEventListener('submit', (e) =>{
    e.preventDefault();
     if (campos.reference && campos.brand && campos.category  && campos.presentation  && campos.description  && campos.price  && campos.quantity && $("#photography").val() != "") {   
         agregarCliente();
         console.log('formulario correcto');
-        formulario.reset();
+        formularioFragance.reset();
     }
     else
         alert("todos los campos debes estar llenos y debe subir una foto del producto.")  

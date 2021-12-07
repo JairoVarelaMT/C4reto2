@@ -51,12 +51,12 @@ const validarCampos = (e) =>{
             if (expresiones.usuario.test(e.target.value)) {
                 document.getElementById('direccion').classList.remove('is-invalid')
                 document.getElementById('direccion').classList.add('is-valid')
-                document.getElementById('error_direccion').style.display='none';
+                
                 campos.direccion = true;
             }
             else{
                 document.getElementById('direccion').classList.add('is-invalid')
-                document.getElementById('error_direccion').classList.add('error')
+               
                 document.getElementById('error_direccion').style.display='block';
                 campos.direccion = false;
             }

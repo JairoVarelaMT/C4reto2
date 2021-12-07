@@ -57,7 +57,6 @@ function GetAllUsers(){
     });
 }
 function listarUsuarios(respuesta){
-    
     var myTable=`<table class=" table table-secondary" border="2">
                 <tr>
                 <th>NumeroIdentidad</th>
@@ -86,6 +85,7 @@ function listarUsuarios(respuesta){
     }
     myTable+="</table>";
     $("#tablaUsuarios").html(myTable);
+    
 }
 // metodo eliminar (DELETE)
 function borrarUsuario(id){
@@ -93,7 +93,7 @@ function borrarUsuario(id){
         id:id
     };
     let dataToSend=JSON.stringify(datos);
-    console.log(id);
+    
     $.ajax({
         
         url: "http://132.226.255.90:8080/api/user/"+id,

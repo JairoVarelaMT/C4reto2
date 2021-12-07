@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("#btnActualizar").hide();
+    //$("#btnActualizar").hide();
     AllFragance();
 });
 
@@ -21,7 +21,7 @@ function AllFragance(){
 }
 //METODO AGREGAR (post) UNA FRAGANCE
 function agregarCliente(){
-    var availability
+    
     if ($("#availability").val() == "true") {
         availability = true;
     }
@@ -55,67 +55,13 @@ function agregarCliente(){
         }
         });
 }
-//Metodo mostrar todas las fragancias desde js a DOM
-function listarFrangance(respuesta){
-    
-    var myTable=`<table class=" table table-info table-striped" border="2">
-                <tr>
-                <th>reference</th>
-                <th>brand</th>
-                <th>category</th>
-                <th>presentation</th>
-                <th>description</th>
-                <th>availability</th>
-                <th>price</th>
-                <th>quantity</th>
-                <th>photography</th>
-                <th colspan="2" align="center">Acciones</th>
-                </tr>`;
-    for(i=0;i<respuesta.length;i++){
-        myTable+="<tr>";
-        myTable+="<td>"+respuesta[i].reference+"</td>";
-        myTable+="<td>"+respuesta[i].brand+"</td>";
-        myTable+="<td>"+respuesta[i].category+"</td>";
-        myTable+="<td>"+respuesta[i].presentation+"</td>";
-        myTable+="<td>"+respuesta[i].description+"</td>";
-        myTable+="<td>"+respuesta[i].availability+"</td>";
-        myTable+="<td>"+respuesta[i].price+"</td>";
-        myTable+="<td>"+respuesta[i].quantity+"</td>";
-        myTable+="<td>"+respuesta[i].photography+"</td>";
-        myTable+="<td> <button class='btn btn-warning' onclick='editarFragance("+respuesta[i].reference+")'>Editar</button>";
-        myTable+="<td> <button class='btn btn-danger' onclick='borrarFragance("+respuesta[i].reference+")'>Borrar</button>";
-        myTable+="</tr>";
-    }
-    myTable+="</table>";
-    $("#tablaFragance").html(myTable);
-}
-//---------------------------------------
 //Metodo (DELETE) borrar una fragance
-function borrarFragance(reference){
-    console.log('Entro a borrar.')
-    console.log(reference)
-    let datos={
-        id:reference
-    };
-    let dataToSend=JSON.stringify(datos);
-    $.ajax({
 
-        url: "http://132.226.255.90:8080/api/fragance/"+reference,
-        type:"DELETE",
-        data:dataToSend,
-        contentType:"application/JSON",
-        datatype:"JSON",
-        success:function(respuesta){
-            AllFragance();
-            alert("Fragance borrada con exito.")
-        }
-    });
-}
 //--------------------------------------
 // Metodo editar (put) una Fragance
 function editarFragance(reference){
     $("#btnActualizar").show();
-    $("#btnActualizar").hide();
+    $("#btnGuardar").hide();
     $("#btnListar").hide();
 
     $.ajax({
@@ -173,3 +119,43 @@ function actualizarFragance(){
         },
     });
 } 
+//Metodo mostrar todas las fragancias desde js a DOM
+function listarFrangance(respuesta){
+    var myTable=`<table class=" table table-info table-striped" border="2">
+                <tr>
+                <th>reference</th>
+                <th>brand</th>
+                <th>category</th>
+                <th>presentation</th>
+                <th>description</th>
+                <th>availability</th>
+                <th>price</th>
+                <th>quantity</th>
+                <th>photography</th>
+                <th colspan="2" align="center">Acciones</th>
+                </tr>`;
+    for(i=0;i<respuesta.length;i++){
+        myTable+="<tr>";
+        myTable+="<td>"+respuesta[i].reference+"</td>";
+        myTable+="<td>"+respuesta[i].brand+"</td>";
+        myTable+="<td>"+respuesta[i].category+"</td>";
+        myTable+="<td>"+respuesta[i].presentation+"</td>";
+        myTable+="<td>"+respuesta[i].description+"</td>";
+        myTable+="<td>"+respuesta[i].availability+"</td>";
+        myTable+="<td>"+respuesta[i].price+"</td>";
+        myTable+="<td>"+respuesta[i].quantity+"</td>";
+        myTable+="<td>"+respuesta[i].photography+"</td>";
+        myTable+="<td> <button class='btn btn-warning' onclick='editFragance("+respuesta[i].price+")'>Editar</button>";
+        myTable+="<td> <button class='btn btn-danger'  onclick='deleteFragance("+respuesta[i].reference+")'> <i class='bi bi-x-square'></i></button>";
+        myTable+="</tr>";
+    }
+    myTable+="</table>";
+    $("#tablaFragance").html(myTable);
+
+    
+}
+//---------------------------------------
+function deleteFragance(id){
+   console.log("http://132.226.255.90:8080/api/fragance/"+id)
+   
+}

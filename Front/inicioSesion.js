@@ -1,7 +1,11 @@
 ////////////        FUNCION PARA VALIDAR CAMPOS VACIOS       /////////////////////
 function validarCamposVacios() {
     if ($("#user").val().length == 0 || $("#password").val().length == 0) {
-        alert("Todos los campos son obligatorios");
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Todos los campos deben estar llenos.'
+          })   
         return false;
     } else {
         return true;
@@ -16,7 +20,11 @@ function validarCorreo() {
     if (esValido==true) {
         return true;
     } else {
-        alert("El correo no tiene un formato Valido");
+        Swal.fire({//animacion de error
+            icon: 'error',
+            title: 'Oops...',
+            text: 'El correo no tiene un formato valido.'
+          })   
         return false;
     }
 }

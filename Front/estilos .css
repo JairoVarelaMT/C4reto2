@@ -1,11 +1,46 @@
 *{
     border: 0;
     padding: 0;
+    font-family: 'Oswald', sans-serif;
 }
+#fondo{
+    background: rgb(0,0,0);
+    background: linear-gradient(172deg, rgba(0,0,0,1) 5%, rgba(255,202,0,0.9612044646960347) 52%, rgba(187,148,1,1) 100%); 
+}
+
 
 .container{
     border-radius: 10px;
 }
 p{
     font-size: medium;
+}
+#loggin{
+    background: #fff url(/Front/img/LogoZorrillo.jpeg) center center/cover no-repeat;
+    border: 4px none rgba(28,110,164,0.41);
+    border-radius: 17px;
+    
+    
+}
+    #btnInicioSesion {background-image: linear-gradient(to right, #1D976C 0%, #93F9B9  51%, #1D976C  100%)}
+    #btnInicioSesion {
+       margin: 10px;
+       padding: 15px 45px;
+       text-align: center;
+       text-transform: uppercase;
+       transition: 0.5s;
+       background-size: 200% auto;
+       color: rgb(255, 255, 255);            
+       box-shadow: 0 0 20px #eee;
+       border-radius: 10px;
+       display: block;
+     }
+
+     #btnInicioSesion:hover {
+       background-position: right center; /* change the direction of the change here */
+       color: rgb(255, 255, 255);
+       text-decoration: none;
+     }
+input{
+    opacity: 0.30;
 }

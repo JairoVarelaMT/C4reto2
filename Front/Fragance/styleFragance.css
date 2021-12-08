@@ -6,3 +6,12 @@ html body{
    background: rgb(161, 157, 157);
 
 }
+#formularioFragance{
+    background-image: url('/img/LogoZorrillo.jpeg');
+    background: rgba( 251, 251, 251, 0.50 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 5px );
+    -webkit-backdrop-filter: blur( 5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}

@@ -20,11 +20,11 @@
 </head>
 <body>
     
-    <div class="container bt-3 border p-3 mt-3" >
+    <div class="container bt-3 p-3 mt-3" >
         <!--contenedor principal-->
         <div class="row">
-            <div class="col-2"></div>
-            <div class="col" id="formulario_user">
+            <div class="col-1"></div>
+            <div class="col-10" id="formulario_user">
             
                 <h2 class="text-center pt-5 mb-5">Formulario Usuarios</h2>
                 <div class="container-form">
@@ -121,13 +121,17 @@
                     </form>
                     <button id="btnActualizar" type="submit" class="btn btn-success mb-3" style="width: 150px;"><i class="bi bi-person-plus-fill"></i> Actualizar</button>
                 
-                    <div class="container">
-                        <div id="tablaUsuarios"></div>
-                    </div>       
+                        
                 </div>
             </div>
             <!--Columna principal-->
-            <div class="col-2"></div>
+            <div class="col-1"></div>
+            <div class="row pt-4">
+                <div class="container">
+                    <h2 class="text-center">Usuarios registrados</h2>
+                    <div id="tablaUsuarios"></div>
+                </div>  
+            </div>
         </div>
 
         

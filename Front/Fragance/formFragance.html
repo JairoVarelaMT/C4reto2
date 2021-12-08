@@ -37,20 +37,22 @@
     <title>Formulario Fragance</title>
   </head>
   <body>
-    <div class="container-fluid border" id="fondo">
+    <div class="container-fluid bt-3 p-3" id="fondo">
       <div class="container">
         <!--Fila principal-contenedor de form-->
         <div class="row">
           <div class="col-1"></div>
           <!--Columna Principal contenedor de form-->
-          <div class="col-8 border mt-3">
-            <h2 class="text-center pt-5 mb-5">Formulario Fragance</h2>
+          <div class="col-10 mt-3">
+           
             <div class="container">
               <form
                 class="row needs-validation"
                 id="formularioFragance"
                 novalidate
               >
+              <h2 class="text-center pt-5 mb-5">Formulario Fragance</h2>
+
                 <div class="row">
                   <div class="col-6">
                     <div class="form-floating">
@@ -142,8 +144,9 @@
                         class="form-select form-select-lg"
                         required
                       >
-                        <option selected>Availability...</option>
-                        <option selected="true" value="true">True</option>
+                       
+                        <option value="true">True</option>
+                        <option selected value="true">Availability...</option>
                         <option value="false">False</option>
                       </select>
                     </div>
@@ -203,14 +206,16 @@
 
               <button
                 id="btnActualizar"
+                onclick="actualizarFragance()"
                 type="submit"
-                class="btn btn-success mb-3"
+                class="btn btn-info mb-3"
                 style="width: 150px"
               >
-                <i class="bi bi-person-plus-fill"></i> Actualizar
+              <i class="bi bi-arrow-clockwise"></i> Actualizar
               </button>
             </div>
           </div>
+          <!--Columna Principal-->
           <div class="col-1"></div>
         </div>
       </div>
@@ -221,6 +226,7 @@
 
       <!--JS-->
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./validarCamposFragance.js"></script>
     <script src="./CRUD_fragance.js"></script>
   </body>

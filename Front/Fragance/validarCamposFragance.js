@@ -75,11 +75,14 @@ formularioFragance.addEventListener('submit', (e) =>{
    e.preventDefault();
     if (campos.reference && campos.brand && campos.category  && campos.presentation  && campos.description  && campos.price  && campos.quantity && $("#photography").val() != "") {   
         agregarCliente();
-        console.log('formulario correcto');
         formularioFragance.reset();
     }
     else
-        alert("todos los campos debes estar llenos y debe subir una foto del producto.")  
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Todos los campos deben estar llenos'
+      })   
 });
 
 

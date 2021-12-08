@@ -14,6 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <link rel="shortcut icon" href="/path/to/favicon.ico">
     <!--Css-->
     <link rel="stylesheet" href="/Front/menu.css"> 
     <title>Menu</title>
@@ -36,7 +39,7 @@
              
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Usuarios
+                    <i class="bi bi-people"></i> Usuarios
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="">CRUD usuarios</a></li>
@@ -47,7 +50,7 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Productos
+                    <i class="bi bi-archive"></i> Productos
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="#">CRUD Productos</a></li>
@@ -65,7 +68,9 @@
   
     <div class="container-fluid" id="fondo">
        
-        <h1 class="text-center pt-3">Menu Principal</h1>
+        <h1 class="text-center pt-3"><span class="material-icons-outlined">
+            people_outline
+            </span>Menu Principal</h1>
         <div class="container pt-5 " style="animation: myAnim 2s ease 0s 1 normal forwards;">
             <div class="row row-cols-1 row-cols-md-2 g-4 pb-5">
                 <div class="col">
@@ -74,7 +79,7 @@
                     <div class="card-body">
                       <h5 class="card-title"><strong>CRUD USUARIOS</strong> </h5>
                       <p class="card-text">Crea, edita y elimina a todos los usuarios de la compañia.</p>
-                      <a class="btn-user" href="/Front/User/formUser.html">Ingresar</a>
+                      <a class="btn-user" href="/Front/User/formUser.html"><i class="bi bi-people"></i> Ingresar</a>
                     </div>
                   </div>
                 </div>
@@ -84,7 +89,7 @@
                     <div class="card-body">
                       <h5 class="card-title"><strong>CRUD PRODUCTOS</strong></h5>
                       <p class="card-text">Crea, edita y elimina todos los productos de tu base de datos</p>
-                      <a class="btn-user" href="">Ingresar</a>
+                      <a class="btn-user" href=""><i class="bi bi-archive"></i> Ingresar</a>
                     </div>
                   </div>
                 </div>

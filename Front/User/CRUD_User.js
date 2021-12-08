@@ -10,7 +10,7 @@ btnActualizar.addEventListener('onclick',() =>{
 });
 //METODO AGREGAR (post) UN USUARIO
 function agregarUser(){
-    console.log('Entro al metodo agregar cliente');
+    
     var datos = {
         id: parseInt($("#numeroIdentificacion").val()),
         identification:$("#numeroIdentificacion").val(),
@@ -37,7 +37,11 @@ function agregarUser(){
         },
         error: function(jqXHR, textStatus, errorThrown) {
               window.location.reload()
-            alert("No se guardo correctamente");
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No se pudo guardar el usuario. rest api'
+              })  
 
         }
         });
@@ -46,7 +50,6 @@ function agregarUser(){
 function GetAllUsers(){
     
     $.ajax({
-
         url:"http://132.226.255.90:8080/api/user/all",
         type:"GET",
         datatype:"JSON",
@@ -89,24 +92,50 @@ function listarUsuarios(respuesta){
 }
 // metodo eliminar (DELETE)
 function borrarUsuario(id){
-    let datos={
-        id:id
-    };
-    let dataToSend=JSON.stringify(datos);
-    
-    $.ajax({
-        
-        url: "http://132.226.255.90:8080/api/user/"+id,
-        type:"DELETE",
-        data:dataToSend,
-        contentType:"application/JSON",
-        datatype:"JSON",
-        success:function(respuesta){
-            formulario.reset();
-            GetAllUsers();
-            alert("Cliente borrado con exito.")
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+      
+      swalWithBootstrapButtons.fire({
+        title: 'Estas seguro?',
+        text: "Se eliminara de la base de datos!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, eliminar!',
+        cancelButtonText: 'No, cancelar!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: "http://132.226.255.90:8080/api/user/"+id,
+                type:"DELETE",
+                contentType:"application/JSON",
+                datatype:"JSON",
+                success:function(){
+                    formulario.reset();
+                    GetAllUsers();
+                }
+            });
+          swalWithBootstrapButtons.fire(
+            'Eliminado!',
+            'El usuario a sido borrado de la base de datos.',
+            'success'
+          )
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'tu usuario esta guardado :)',
+            'error'
+          )
         }
-    });
+      })
 } 
 // Metodo editar (put) un usuario
 
@@ -164,7 +193,12 @@ function actualizarCliente(){
         success:function(respuesta){
             formulario.reset();
             GetAllUsers();
-            alert("Cliente actualizado con exito");
+            Swal.fire({
+                icon: 'success',
+                title: 'Usuario actualizado correctamente.',
+                showConfirmButton: false,
+                timer: 1500
+              })
         },
 
         error:function(xhr,status){

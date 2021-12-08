@@ -122,6 +122,10 @@ formulario.addEventListener('submit', (e) => {
         agregarUser();
     }
     else
-        alert('Todds los campos deben estar llenos.');
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Todos los campos deben estar llenos.'
+      })  
     
 });

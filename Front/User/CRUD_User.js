@@ -31,7 +31,12 @@ function agregarUser(){
         dataType: 'JSON',
         data: JSON.stringify(datos),
         success:function(rest) {
-            alert("Usuario guardado con exito");
+            Swal.fire({
+                icon: 'success',
+                title: 'El usuario a sido creado exitosamente..',
+                showConfirmButton: false,
+                timer: 1500
+              })
             formulario.reset();
             GetAllUsers();
         },

@@ -46,15 +46,27 @@ function validarCredenciales() {
     $.ajax({
         type: "GET",
         contentType: "application/json; charset=utf-8",
-        url: "http://localhost:8080/api/user/" + email + "/" + password,
+        url: "http://132.226.255.90:8080/api/user/"+email+"/"+password,
+        
         //url:"http://155.248.195.219:8080/api/user" + email + "/" + password,
 
         success: function (respuesta) {
             console.log(respuesta);
             if (respuesta.id == null) {
-                    alert("No existe el usuario")
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'El usuario no existe.'
+                  }) 
             } else {
-                alert("Bienvenido " + respuesta.name)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Bienvenido'+respuesta.name,
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                //alert("Bienvenido " + respuesta.name)
+                document.location.href="/Front/menu.html";
             }
         }
     });

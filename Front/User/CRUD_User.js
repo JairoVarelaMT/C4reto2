@@ -147,7 +147,7 @@ function borrarUsuario(id){
 
 function editarUsuario(id){
     $("#btnActualizar").show();
-    $("#btnActualizar").hide();
+    $("#btnGuardar").hide();
     $("#btnListar").hide();
 
     $.ajax({
@@ -174,9 +174,10 @@ function editarUsuario(id){
 //Metodo (UPDATE) para usuario
 function actualizarCliente(){
     $("#btnGuardar").show();
-    $("#btnListar").show();
+    console.log("http://132.226.255.90:8080/api/user/update")
     $("#btnActualizar").hide();
     var datos = {
+        id: parseInt($("#numeroIdentidad").val()),
         identification:$("#numeroIdentidad").val(),
         name:$("#nombres").val(),
         address:$("#direccion").val(),
@@ -196,6 +197,7 @@ function actualizarCliente(){
         datatype:"JSON",
 
         success:function(respuesta){
+
             formulario.reset();
             GetAllUsers();
             Swal.fire({

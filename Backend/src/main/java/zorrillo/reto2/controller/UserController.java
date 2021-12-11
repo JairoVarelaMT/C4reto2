@@ -7,6 +7,7 @@ import zorrillo.reto2.model.User;
 import zorrillo.reto2.service.UserService;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -22,6 +23,11 @@ public class UserController {
     @GetMapping("/all")
     public List<User> getAll(){
         return userService.getAll();
+    }
+
+    @GetMapping("{id}")
+    public Optional<User> getUser(@PathVariable("id") int id){
+        return userService.getUser(id);
     }
 
     @GetMapping("/emailexist/{email}")

@@ -20,7 +20,10 @@ public class UserService {
     public List<User> getAll(){
         return userRepository.getAll();
     }
-
+    
+    public Optional <User> getUser(Integer id){
+        return userRepository.getUser(id);
+    }
     public boolean existeEmail(String email){
         return userRepository.existeEmail(email);
     }
